@@ -13,6 +13,12 @@ def shell():
     s.download()
     s.upload()
     s.results.share()
-    return jsonify(s.results.dict())
+    down=int(s.results.download)/1000000
+    up=int(s.results.upload)/1000000
+    ping=int(s.results.ping)
+    print(down)
+    return jsonify(download=down,
+        upload=up,
+        ping=ping,)
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=1005)
